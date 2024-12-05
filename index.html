@@ -1,18 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="./style/style.css">
     <link rel="stylesheet" href="./style/style_standard.css">
+    <!--Font-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <!--Send Button-->
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+
 </head>
-<body>
-    
 
-
+<body onload="renderContent()">
+    <div class="page_wrapper">
+        <header></header>
+        <div id="main_container" class="main_container"></div>
+        <footer></footer>
+    </div>
     <script src="./script/script.js"></script>
+    <script src="./script/script_obj.js"></script>
     <script src="./script/template.js"></script>
     <script src="./script/JSON.js"></script>
 </body>
+
 </html>

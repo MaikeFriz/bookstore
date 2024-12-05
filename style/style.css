@@ -1,0 +1,188 @@
+.main_container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    flex: 1;
+    gap: 16px;
+}
+
+.book_presentation_background {
+    height: 400px;
+    width: 600px;
+    background-color: #0A222C;
+    border: white solid 1px;
+    border-radius: 20px;
+}
+
+.display_img_book {
+    height: 90px;
+    width: auto;
+}
+
+.display_img_book img {
+    height: 80px;
+    width: auto;
+}
+
+.title_div {
+    height: 110px;
+    width: auto;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: row;
+}
+
+.title_div h2 {
+    margin-block-start: 0;
+    margin-block-end: 0;
+}
+
+.separator_horizontal {
+    width: auto;
+    height: 1px;
+    background-color: white;
+}
+
+.separator_vertical {
+    width: 1px;
+    height: 240px;
+    background-color: white;
+}
+
+.details_book {
+    height: 260px;
+    width: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+}
+
+.details_book p {
+    margin-block-start: 0;
+    margin-block-end: 0;
+}
+
+.comment_section {
+    height: 260px;
+    width: 290px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+}
+
+.input_comment_section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 24px;
+    gap: 16px;
+}
+
+.input_comment_section input {
+    width: 220px;
+    height: 20px;
+    background-color: rgba(74, 232, 95, 0.326);
+    border: none;
+    border-radius: 5px;
+    color: white;
+}
+
+.input_comment_section span {
+    color: rgba(74, 232, 95, 0.326);
+    font-size: 40px;
+    transform: scale(1);
+    cursor: pointer;
+}
+
+.input_comment_section span:hover {
+    transform: scale(1.2);
+}
+
+.lower_part_book_presentation {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 24px;
+}
+
+.display_comments {
+    height: 210px;
+    width: auto;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    padding: 0 16px;
+}
+
+.display_comments::-webkit-scrollbar {
+    width: 8px;
+    height: auto;
+    background-color: rgba(74, 232, 95, 0.326);
+    border-color: rgb(7, 61, 30);
+    box-shadow: inset 0 0 5px rgb(7, 61, 30);
+    border-radius: 10px;
+}
+
+/* Handle */
+.display_comments::-webkit-scrollbar-thumb {
+    background: rgb(7, 61, 30);
+    border-radius: 10px;
+}
+
+/* Handle on hover */
+.display_comments::-webkit-scrollbar-thumb:hover {
+    background: rgb(3, 186, 79);
+}
+
+.display_comments p {
+    margin-block-start: 0;
+    margin-block-end: 0;
+    font-size: 14px;
+}
+
+.comment_comment_section {
+    padding-bottom: 8px;
+}
+
+.price_like_section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    height: 100px;
+    gap: 60px;
+}
+
+.price_like_section p {
+    font-size: 30px;
+    color: rgba(74, 232, 95, 0.326);
+}
+
+.price_like_section div {
+    font-size: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+}
+
+.price_like_section div span {
+    font-size: 40px;
+    cursor: pointer;
+    color: red;
+    transform: scale(0.9);
+}
+
+.price_like_section div span:hover {
+    transform: scale(1);
+}
+
+.lower_detail_book_section {
+    height: 200px;
+}
+.placeholder_display_comments{
+    font-size: 14px;
+}
