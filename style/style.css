@@ -182,13 +182,13 @@
     font-size: 14px;
 }
 
-#heart_status_img {
+.heart_status_img {
     height: 32px;
     width: 32px;
     cursor: pointer;
     transform: scale(1);
 }
 
-#heart_status_img:hover {
+.heart_status_img:hover {
     transform: scale(1.1);
 }
