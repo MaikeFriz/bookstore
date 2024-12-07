@@ -1,9 +1,6 @@
-function renderContent(){
-    renderBooks();
-}
-
 function renderBooks(){
     let container_books = document.getElementById('main_container');
+    container_books.innerHTML = "";
     for (let indexBook = 0; indexBook < books.length; indexBook++){
         container_books.innerHTML += templateBooks(indexBook);
         renderComments(indexBook); // in schleife ausfuehren weil nur hier indexBooks definiert ist.
@@ -23,7 +20,9 @@ function templateBooks(indexBook){
             <div class="details_book">
                 <div class="price_like_section">
                         <p><strong>${book.price.toFixed(2)} €</strong></p>
-                        <div>${book.likes}<span class="material-symbols-outlined">favorite</span></div>
+                        <div id="heart_status${indexBook}">
+                            ${book.likes}<img onclick="changeHeartStatus(${indexBook})" id="heart_status_img" src="./img_icon/heart_icon_unliked.png">
+                        </div>                
                 </div>
                 <div class="lower_detail_book_section">
                     <p><strong>Autor:</strong> ${book.author}</p>
@@ -35,8 +34,8 @@ function templateBooks(indexBook){
         <div class="comment_section">
             <div id="display_comments${indexBook}" class="display_comments"></div>
             <div class="input_comment_section">
-                <input type="text" placeholder="Schreibe einen Kommentar ...">
-                <span class="material-symbols-outlined">send</span>
+                <input id="input_add_comment${indexBook}" type="text" placeholder="Schreibe einen Kommentar ...">
+                <span onclick ="addComment(${indexBook})" class="material-symbols-outlined">send</span>
             </div>
         </div>
     </div>
@@ -46,11 +45,13 @@ function templateBooks(indexBook){
 function renderComments(indexBook){
     let book = books[indexBook];
     let dislpayComments = document.getElementById(`display_comments${indexBook}`);
+    dislpayComments.innerHTML = "";
     if (book.comments.length === 0){
-        dislpayComments.innerHTML = `<p class="placeholder_display_comments"><i>Noch keine Kommentare vorhanden. Schreib den ersten Kommentar!</i></p>`
+        dislpayComments.innerHTML = `<p id="placeholder_display_comments" class="placeholder_display_comments"><i>Noch keine Kommentare vorhanden. Schreib den ersten Kommentar!</i></p>`
     } else{
         for(let indexComment = 0; indexComment < book.comments.length; indexComment++){
             dislpayComments.innerHTML += templateDisplayComments(indexBook, indexComment);
+            dislpayComments.classList.remove('placeholder_display_comments');
         }
     }
 }
@@ -64,4 +65,29 @@ function templateDisplayComments(indexBook, indexComment){
     `
 }
 
+function addComment(indexBook){
+    let inputAddCommentRef = document.getElementById(`input_add_comment${indexBook}`);
+    let newComment = inputAddCommentRef.value;
+
+    books[indexBook].comments.push({name: "Benutzername", comment:newComment});
+    renderComments(indexBook)
+    inputAddCommentRef.value = "";
+}
+
+function changeHeartStatus(indexBook){
+    let book = books[indexBook];
+    let heartImgRef = document.getElementById(`heart_status${indexBook}`).querySelector('img');
+    let likesTextRef = document.getElementById(`heart_status${indexBook}`);
+
+    if (book.liked){ // Überprüft, ob das Buch bereits geliked ist (book.liked === true).
+        book.likes -= 1;
+        heartImgRef.src = "./img_icon/heart_icon_unliked.png";
+    } else {
+        book.likes += 1;
+        heartImgRef.src = "./img_icon/heart_icon_liked.png";
+    }
+    book.liked = !book.liked; //liked status umschalten
+    likesTextRef.firstChild.textContent = `${book.likes} `;
+
+}
 

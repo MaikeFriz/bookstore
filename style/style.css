@@ -85,10 +85,15 @@
 .input_comment_section input {
     width: 220px;
     height: 20px;
-    background-color: rgba(74, 232, 95, 0.326);
+    background-color:  #0A222C;
     border: none;
-    border-radius: 5px;
     color: white;
+    cursor: pointer;
+    border-color: none;
+    border-bottom: 2px solid rgba(74, 232, 95, 0.326);
+}
+.input_comment_section input[type=text]:focus{
+    border-color: rgba(74, 232, 95, 0.326); /*funktioniert noch nicht*/
 }
 
 .input_comment_section span {
@@ -169,20 +174,21 @@
     gap: 8px;
 }
 
-.price_like_section div span {
-    font-size: 40px;
-    cursor: pointer;
-    color: red;
-    transform: scale(0.9);
-}
-
-.price_like_section div span:hover {
-    transform: scale(1);
-}
-
 .lower_detail_book_section {
     height: 200px;
 }
-.placeholder_display_comments{
+
+.placeholder_display_comments {
     font-size: 14px;
+}
+
+#heart_status_img {
+    height: 32px;
+    width: 32px;
+    cursor: pointer;
+    transform: scale(1);
+}
+
+#heart_status_img:hover {
+    transform: scale(1.1);
 }
