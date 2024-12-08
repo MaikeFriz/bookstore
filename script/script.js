@@ -56,7 +56,7 @@ function changeHeartStatus(indexBook) {
     let book = books[indexBook];
     let heartImgRef = document.getElementById(`heart_status_img${indexBook}`);
     let nbrLikesRef = document.getElementById(`number_of_likes${indexBook}`);
-    book.liked = !book.liked;
+    book.liked = !book.liked; 
     if(book.liked === true){
         heartImgRef.src = "./img_icon/heart_icon_liked.png";
         book.likes +=1;
