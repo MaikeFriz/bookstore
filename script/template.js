@@ -13,8 +13,8 @@ function templateBooks(indexBook) {
             <div class="price_like_section">
                 <p><strong>${book.price.toFixed(2)} €</strong></p>
                 <div id="heart_status${indexBook}">
-                    <p class="number_of_likes" id="heart_status${indexBook}_likes">${book.likes}</p>
-                    <img id="${indexBook}_heart_status_img" src="${book.liked ? './img_icon/heart_icon_liked.png' : './img_icon/heart_icon_unliked.png'}" onclick="changeHeartStatus(${indexBook})" class="heart_status_img">
+                    <p class="number_of_likes" id="number_of_likes${indexBook}">${book.likes}</p>
+                    <img onclick="changeHeartStatus(${indexBook})" id="heart_status_img${indexBook}" src="${book.liked ? './img_icon/heart_icon_liked.png' : './img_icon/heart_icon_unliked.png'}" class="heart_status_img">
                 </div>
             </div>
             <div class="lower_detail_book_section">

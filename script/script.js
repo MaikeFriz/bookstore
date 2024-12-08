@@ -54,21 +54,16 @@ function addComment(indexBook) {
 
 function changeHeartStatus(indexBook) {
     let book = books[indexBook];
-    let heartImgRef = document.getElementById(`${indexBook}_heart_status_img`);
-
-
-    if (book.liked === true) {
-        heartImgRef.src = "./img_icon/heart_icon_unliked.png";
-        book.likes -= 1;
-    } else {
-        heartImgRef.src = "./img_icon/heart_icon_liked.png";
-        book.likes += 1;
-    }
-
-    // Toggle Like-Status und Likes-Zahl
+    let heartImgRef = document.getElementById(`heart_status_img${indexBook}`);
+    let nbrLikesRef = document.getElementById(`number_of_likes${indexBook}`);
     book.liked = !book.liked;
-
-    // Aktualisierung der Likes-Zahl im HTML
-    document.getElementById(`heart_status${indexBook}_likes`).textContent = book.likes;
+    if(book.liked === true){
+        heartImgRef.src = "./img_icon/heart_icon_liked.png";
+        book.likes +=1;
+    } else {
+        heartImgRef.src = "./img_icon/heart_icon_unliked.png"; 
+        book.likes -=1;
+    }
+    nbrLikesRef.innerText = book.likes;
     saveBooksInLocalStorage();
 }
