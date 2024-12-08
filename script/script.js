@@ -1,7 +1,6 @@
 function init() {
-    renderBooks();
     getBooksFromLocalStorage();
-
+    renderBooks();
 }
 
 function renderBooks() {
@@ -10,8 +9,8 @@ function renderBooks() {
     for (let indexBook = 0; indexBook < books.length; indexBook++) {
         container_books.innerHTML += templateBooks(indexBook);
         renderComments(indexBook); // in schleife ausfuehren weil nur hier indexBooks definiert ist.
+        saveBooksInLocalStorage();
     }
-    saveBooksInLocalStorage();
 }
 
 function renderComments(indexBook) {
@@ -46,8 +45,8 @@ function addComment(indexBook) {
         alert('Bitte geben Sie einen Kommentar ein bevor Sie absenden.')
     } else {
         books[indexBook].comments.push({ name: "Benutzername", comment: newComment });
-        renderComments(indexBook)
         inputAddCommentRef.value = "";
+        renderComments(indexBook);
         saveBooksInLocalStorage();
     }
 }
@@ -65,5 +64,5 @@ function changeHeartStatus(indexBook) {
         book.likes -=1;
     }
     nbrLikesRef.innerText = book.likes;
-    saveBooksInLocalStorage();
+    saveBooksInLocalStorage()
 }

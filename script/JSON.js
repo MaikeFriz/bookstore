@@ -1,16 +1,10 @@
-//funktioniert noch nicht
-
 function saveBooksInLocalStorage(){
-    localStorage.setItem("myBooks",JSON.stringify(books));
+    localStorage.setItem("myBooks", JSON.stringify(books));
 }
 
 function getBooksFromLocalStorage(){
     let storedBooks = localStorage.getItem("myBooks");
-
     if(storedBooks){
-        books = JSON.parse(storedBooks)
-    } else {
-        books = [];
+        books = JSON.parse(storedBooks);
     }
-    console.log('Books gespeichert:', books);
 }
